@@ -26,8 +26,8 @@
 		</template>
 		<template id="index">
 			<div>{{name}}</div>
-			<a v-link="{path:'/index/a'}">a</a>
-			<a v-link="{path:'/index/b'}">b</a>
+			<a v-link="{name:'a',params:{id:a}}">a</a>
+			<a v-link="{name:'b',params:{id:b}}">b</a>
 			<router-view></router-view>
 		</template>
 	</body>
@@ -96,10 +96,12 @@
 			'/index':{
 				component:index,
 				subRoutes:{
-					'/a':{
+					'/a/:id':{
+						name:'a',
 						component:a
 					},
-					'/b':{
+					'/b/:id':{
+						name:'b',
 						component:b
 					}
 				}
