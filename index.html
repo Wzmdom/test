@@ -13,7 +13,7 @@
 		<div id="demo"></div>
 		<template id="app">
 			<child></child>
-			<a v-link="{path:'/index/a',activeClass:'active'}">index</a>
+			<a v-link="{path:'/index/a/1',activeClass:'active'}">index</a>
 			<a v-link="{name:'home',params:{id:1}}">home</a>
 			<router-view></router-view>
 			<div>
@@ -26,8 +26,8 @@
 		</template>
 		<template id="index">
 			<div>{{name}}</div>
-			<a v-link="{name:'a',params:{id:a}}">a</a>
-			<a v-link="{name:'b',params:{id:b}}">b</a>
+			<a v-link="{name:'a',params:{id:1}}">a</a>
+			<a v-link="{name:'b',params:{id:2}}">b</a>
 			<router-view></router-view>
 		</template>
 	</body>
@@ -112,7 +112,7 @@
 			}
 		});
 		router.redirect({
-			'*':'/index/a'
+			'*':'/index/a/1'
 		});
 		router.start(app,'#demo');
 		// var index = Vue.extend({
